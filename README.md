@@ -29,6 +29,12 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 ---
 
+## Como usar?
+
+Não existe uma forma correta, por enquanto use o comando `npm run dev` para rodar a aplicação em modo de desenvolvimento. Por padrão a aplicação loga com o usuário e retorna a sua grade de horários atual.
+
+---
+
 - Hours Grid (grade de horários):
 
 ```
