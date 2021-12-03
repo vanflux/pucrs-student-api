@@ -14,12 +14,14 @@ Por enquanto, é necessário pôr os dados de autenticação no arquivo `account
 
 ```json
 {
-  "registry": "", // Matrícula (8 dígitos)
+  "registry": "", 
   "password": "",
-  "token": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // Não obrigatório
+  "token": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
   "useToken": false
 }
 ```
+
+Registry = Matrícula (8 dígitos)
 
 O token é gerado quando o login é feito, caso tenha um é possível acelerar o processo de login (o token expira após um determinado tempo)
 
