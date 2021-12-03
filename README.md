@@ -8,6 +8,8 @@ Por enquanto existem 3 requisições implementadas, o webapp não possui uma API
 
 Não é possível baixar o pacote pelo NPM (momentaneamente).
 
+Node.js 16.6.0
+
 ---
 
 Por enquanto, é necessário pôr os dados de autenticação no arquivo `account.json` dentro da pasta `src/secrets`, exemplo:
