@@ -27,7 +27,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Hours Grid (grade de horários):
 
-```json
+```
 {
   year: 2021,
   semester: 2,
@@ -50,7 +50,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Grade Grid (notas do semestre atual):
 
-```json
+```
 {
   disciplineGrades: [
     {
@@ -79,7 +79,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Bill (boleto):
 
-```json
+```
 {
   year: 2021,
   semester: 2,
