@@ -57,10 +57,12 @@ export class PucrsClient {
       error: body.message === 'No message available' ? 'Login failed, wrong password' : body.message
     };
 
+    if (body.includes('Em manutenção')) return { success: false, error: 'Maintenance' };
+
     let tokenMatcher = response.headers.location?.match(/ValidaAluno\?p=(.*)$/);
     let token = tokenMatcher ? Array.from(tokenMatcher)[1] : null;
 
-    if (!token) return { success: false, error: 'Login failed, invalid registry' };
+    if (!token) return { success: false, error: 'Login failed' };
     this.token = token;
     
     let auth = await this.authenticate();

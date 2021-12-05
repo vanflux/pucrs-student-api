@@ -1,0 +1,49 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const node_html_parser_1 = __importDefault(require("node-html-parser"));
+function disciplineGradeRows(rows) {
+    let [disciplineCodeCell, disciplineNameCell, partialGradesCell, classCountCell, absencesCell, gradesCell] = rows[0].querySelectorAll(':scope > td');
+    let [publishCell] = rows[2].querySelectorAll('td');
+    let disciplineCode = disciplineCodeCell.text.split('/')[0];
+    let disciplineName = disciplineNameCell.text;
+    let [partialGradesHeader, partialGradesContent] = partialGradesCell.querySelectorAll('tr');
+    let partialGradeNames = partialGradesHeader.querySelectorAll('th').map(x => x.text.trim());
+    let partialGradeContents = partialGradesContent.querySelectorAll('td').map(x => {
+        let n = parseInt(x.text);
+        if (isNaN(n))
+            return null;
+        return n;
+    });
+    let partialGrade = Object.fromEntries(partialGradeNames.map((name, i) => [name, partialGradeContents[i]]));
+    let classCount = parseInt(classCountCell.text);
+    let absences = parseInt(absencesCell.text);
+    let finalGradeText = gradesCell.text;
+    let finalGrade = parseFloat(finalGradeText);
+    if (isNaN(finalGrade))
+        finalGrade = undefined;
+    let finalGradeMessage = finalGrade === undefined ? finalGradeText : undefined;
+    let publishMatches = publishCell.text.match(/Ata publicada em: (\d+)\/(\d+)\/(\d+) (\d+):(\d+):(\d+)/);
+    let publishDate;
+    if (publishMatches && publishMatches.length >= 7) {
+        publishDate = new Date(parseInt(publishMatches[3]), parseInt(publishMatches[2]) - 1, parseInt(publishMatches[1]), parseInt(publishMatches[4]), parseInt(publishMatches[5]), parseInt(publishMatches[6]));
+    }
+    return { disciplineCode, disciplineName, partialGrade, classCount, absences, finalGradeMessage, finalGrade, publishDate };
+}
+function gradeGrid(root) {
+    let [_, ...rows] = root.querySelectorAll('table[class^=graus] > tbody > tr');
+    let disciplineGrades = [];
+    for (let i = 0; i < rows.length; i += 3) {
+        let subRows = rows.slice(i, i + 3);
+        if (subRows.length === 3)
+            disciplineGrades.push(disciplineGradeRows(subRows));
+    }
+    return { disciplineGrades };
+}
+async function parseGradeGrid(body) {
+    const root = (0, node_html_parser_1.default)(body);
+    return gradeGrid(root);
+}
+exports.default = parseGradeGrid;

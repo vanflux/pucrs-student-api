@@ -2,7 +2,7 @@ import { PucrsClient } from "./client";
 import "./plugins/hours-grid.plugin";
 import "./plugins/grade-grid.plugin";
 import "./plugins/bill.plugin";
-import account from "./secrets/account.json";
+import account from "../secrets/account.json";
 import { inspect } from "util";
 
 async function main() {
@@ -17,11 +17,11 @@ async function main() {
     if (!loginResult.success) return;
   }
   
-  let hoursGrade = await client.hoursGrid();
-  console.log(inspect(hoursGrade, false, null, true));
+  //let hoursGrade = await client.hoursGrid();
+  //console.log(inspect(hoursGrade, false, null, true));
   
-  //let gradeGrid = await client.gradeGrid(); // Slow request
-  //console.log(inspect(gradeGrid, false, null, true));
+  let gradeGrid = await client.gradeGrid(); // Slow request
+  console.log(inspect(gradeGrid, false, null, true));
   
   //let bill = await client.bill();
   //console.log(bill);

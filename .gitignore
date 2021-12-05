@@ -1,2 +1,4 @@
 node_modules/
-src/secrets/account.json
+secrets/*
+tsconfig.tsbuildinfo
+dist/tsconfig.tsbuildinfo
