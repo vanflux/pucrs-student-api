@@ -12,6 +12,36 @@ Node.js 16.6.0
 
 ---
 
+
+## Como usar?
+
+Instalação(não pretendo publicar no npm...):
+
+`npm i https://github.com/vanflux/pucrs-student-api/`
+
+Código de exemplo:
+
+```javascript
+const { PucrsClient } = require("pucrs-student-api");
+
+async function main() {
+  let client = new PucrsClient();
+  let loginStatus = await client.login('12345678', 'password');
+  console.log(loginStatus);
+  if (!loginStatus.success) return;
+  let gradeGrid = await client.gradeGrid();
+  console.log(gradeGrid);
+}
+
+main();
+```
+
+---
+
+## Contribuir
+
+Faça um fork, altere o que quiser e abra um pull request. Use `npm run dev` para rodar a aplicação em modo de desenvolvimento. Por padrão a aplicação loga com o usuário e retorna a sua grade de notas(o servidor é lento nessa ação).
+
 Por enquanto, é necessário pôr os dados de autenticação no arquivo `account.json` dentro da pasta `src/secrets`, exemplo:
 
 ```json
@@ -26,12 +56,6 @@ Por enquanto, é necessário pôr os dados de autenticação no arquivo `account
 Registry = Matrícula (8 dígitos)
 
 O token é gerado quando o login é feito, caso tenha um é possível acelerar o processo de login (o token expira após um determinado tempo)
-
----
-
-## Como usar?
-
-Não existe uma forma correta, por enquanto use o comando `npm run dev` para rodar a aplicação em modo de desenvolvimento. Por padrão a aplicação loga com o usuário e retorna a sua grade de horários atual.
 
 ---
 
