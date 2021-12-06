@@ -12,7 +12,7 @@ function disciplineGradeRows(rows) {
     let [partialGradesHeader, partialGradesContent] = partialGradesCell.querySelectorAll('tr');
     let partialGradeNames = partialGradesHeader.querySelectorAll('th').map(x => x.text.trim());
     let partialGradeContents = partialGradesContent.querySelectorAll('td').map(x => {
-        let n = parseInt(x.text);
+        let n = parseFloat(x.text);
         if (isNaN(n))
             return null;
         return n;
