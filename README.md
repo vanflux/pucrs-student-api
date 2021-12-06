@@ -42,7 +42,7 @@ main();
 
 Faça um fork, altere o que quiser e abra um pull request. Use `npm run dev` para rodar a aplicação em modo de desenvolvimento. Por padrão a aplicação loga com o usuário e retorna a sua grade de notas(o servidor é lento nessa ação).
 
-Por enquanto, é necessário pôr os dados de autenticação no arquivo `account.json` dentro da pasta `src/secrets`, exemplo:
+Por enquanto, é necessário pôr os dados de autenticação no arquivo `account.json` dentro da pasta `secrets`, exemplo:
 
 ```json
 {
