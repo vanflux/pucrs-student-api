@@ -6,8 +6,6 @@ Projeto open source sem qualquer intenção de manter suporte ou causar quaisque
 
 Por enquanto existem 3 requisições implementadas, o webapp não possui uma API REST, todas as respostas precisam ser extraídas de um HTML.
 
-Não é possível baixar o pacote pelo NPM (momentaneamente).
-
 Node.js 16.6.0
 
 ---
