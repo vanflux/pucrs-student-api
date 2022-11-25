@@ -1,4 +1,6 @@
-# Pucrs Student API
+# Pucrs Student API (método: portal web)
+
+_Obs.: Atualmente existem formas melhores de consultar esses dados... uma delas é pela API mobile... muito mais robusta, simples, etc..._
 
 API para os alunos poderem extrair a grade de horários, notas e boleto da PUCRS.
 
@@ -19,7 +21,7 @@ Instalação(não pretendo publicar no npm...):
 
 Código de exemplo:
 
-```javascript
+```js
 const { PucrsClient } = require("pucrs-student-api");
 
 async function main() {
@@ -59,7 +61,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Hours Grid (grade de horários):
 
-```
+```ts
 {
   year: 2021,
   semester: 2,
@@ -82,7 +84,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Grade Grid (notas do semestre atual):
 
-```
+```ts
 {
   disciplineGrades: [
     {
@@ -111,7 +113,7 @@ O token é gerado quando o login é feito, caso tenha um é possível acelerar o
 
 - Bill (boleto):
 
-```
+```ts
 {
   year: 2021,
   semester: 2,
