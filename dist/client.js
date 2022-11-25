@@ -66,6 +66,7 @@ class PucrsClient {
         }
     }
     async authenticate() {
+        await this.apiCall('/consulta/servlet/consulta.aluno.ValidaAluno?p=' + this.token);
         let { error, body } = await this.apiCall('/consulta/servlet/consulta.aluno.ValidaAluno?p=' + this.token);
         if (error || !body)
             return { success: false, error: error || body };
